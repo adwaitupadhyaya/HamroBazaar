@@ -116,3 +116,15 @@ export const editCustomer = async (req, res) => {
   );
   res.status(200).send({ message: "Customer Edited" });
 };
+
+export const searchCustomer = async (req, res) => {
+  console.log(req.body);
+  try {
+    const searchedCustomers = await Customer.find({
+      name: { $regex: `${req.body.name}`, $options: "i" },
+    });
+    return res.status(200).send(searchedCustomers);
+  } catch (error) {
+    return res.status(200).send({ message: error.message });
+  }
+};
