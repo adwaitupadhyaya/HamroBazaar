@@ -8,8 +8,6 @@ import {
   editCustomer,
   searchCustomer,
 } from "./customer.service.js";
-import { checkMongoID } from "../utils/utils.js";
-import { Customer } from "./customer.model.js";
 
 const router = express.Router();
 
